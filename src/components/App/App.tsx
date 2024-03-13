@@ -1,23 +1,26 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 
-import Sidebar from "../Sidebar/Sidebar";
-import Content from "../Content/Content";
-import Header from "../Header/Header";
+import Modal from "../Modal/Modal";
 
 import style from "./App.module.scss";
 
-const App: React.FC = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
+const App: FC = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <div className={style["app"]}>
-      <Header />
-      <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
-      <Content isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <div
+        className={style["button-wrapper"]}
+        onClick={() => console.log("clicked")}
+      >
+        <button onClick={() => setIsOpen(true)}>Open Modal</button>
+
+        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+          Fancy Modal
+        </Modal>
+      </div>
+
+      <div className={style["other-content"]}>Other Content</div>
     </div>
   );
 };

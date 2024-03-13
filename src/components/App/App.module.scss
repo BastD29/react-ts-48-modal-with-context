@@ -1,7 +1,14 @@
-// .content {
-//   transition: margin-left 0.3s ease;
-// }
+.app {
+  //   background-color: red;
+  .button-wrapper {
+    position: relative;
+    z-index: 1;
+  }
 
-// .push {
-//   margin-left: 250px;
-// }
+  .other-content {
+    position: relative;
+    z-index: 2;
+    background-color: red;
+    padding: 10px;
+  }
+}
