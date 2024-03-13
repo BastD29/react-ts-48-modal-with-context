@@ -1,28 +1,15 @@
-import { FC, useState } from "react";
-
-import Modal from "../Modal/Modal";
+import Header from "../Header/Header";
+import Test1 from "../Test1/Test1";
+import Test2 from "../Test2/Test2";
 
 import style from "./App.module.scss";
 
-const App: FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
+export default function App() {
   return (
     <div className={style["app"]}>
-      <div
-        className={style["button-wrapper"]}
-        onClick={() => console.log("clicked")}
-      >
-        <button onClick={() => setIsOpen(true)}>Open Modal</button>
-
-        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-          Fancy Modal
-        </Modal>
-      </div>
-
-      <div className={style["other-content"]}>Other Content</div>
+      <Header />
+      <Test1 />
+      <Test2 />
     </div>
   );
-};
-
-export default App;
+}
